@@ -1,0 +1,7 @@
+spring:
+    data:
+      mongodb:
+        uri : ${URIMONGO}
+        database : techshop
+server:
+  port: 8080
