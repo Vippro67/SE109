@@ -1,6 +1,17 @@
 package com.techshopbe.dto;
 
+import com.techshopbe.entity.Category;
+import com.techshopbe.entity.DetailedInvoice;
+import com.techshopbe.entity.Product;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 // chi tiet hoa don
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class DetailedInvoiceDTO {
 	private String productID;
 	private int productPrice;
@@ -11,88 +22,15 @@ public class DetailedInvoiceDTO {
 	private String images;
 	private String categorySlug;
 
-	public String getCategorySlug() {
-		return categorySlug;
-	}
-
-	public void setCategorySlug(String categorySlug) {
-		this.categorySlug = categorySlug;
-	}
-
-	public String getImages() {
-		return images;
-	}
-
-	public void setImages(String images) {
-		this.images = images;
-	}
-
-	public void setReviewed(boolean isReviewed) {
-		this.isReviewed = isReviewed;
-	}
-
-	public boolean getIsReviewed() {
-		return isReviewed;
-	}
-
-	public void setIsReviewed(boolean isReviewed) {
-		this.isReviewed = isReviewed;
-	}
-
-	public String getProductName() {
-		return productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-
-	public DetailedInvoiceDTO() {
-	}
-
-	public String getProductID() {
-		return productID;
-	}
-
-	public void setProductID(String productID) {
-		this.productID = productID;
-	}
-
-	public int getProductPrice() {
-		return productPrice;
-	}
-
-	public void setProductPrice(int productPrice) {
-		this.productPrice = productPrice;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public int getTotalPrice() {
-		return totalPrice;
-	}
-
-	public void setTotalPrice(int totalPrice) {
-		this.totalPrice = totalPrice;
-	}
-
-	public DetailedInvoiceDTO(String productID, int productPrice, int quantity, int totalPrice, String productName,
-			boolean isReviewed, String images, String categorySlug) {
-		super();
-		this.productID = productID;
-		this.productPrice = productPrice;
-		this.quantity = quantity;
-		this.totalPrice = totalPrice;
-		this.productName = productName;
-		this.isReviewed = isReviewed;
-		this.images = images;
-		this.categorySlug = categorySlug;
+	public DetailedInvoiceDTO(DetailedInvoice detailedInvoice, Product product, Category category) {
+		productID = product.getProductID();
+		productPrice = product.getProductPrice();
+		quantity = detailedInvoice.getQuantity();
+		totalPrice = detailedInvoice.getTotalPrice();
+		productName = product.getProductName();
+		isReviewed = detailedInvoice.isReviewed();
+		images = product.getImages();
+		categorySlug = category.getCategorySlug();
 	}
 
 }
