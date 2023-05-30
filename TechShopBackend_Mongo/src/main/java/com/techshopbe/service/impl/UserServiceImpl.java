@@ -26,15 +26,20 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDTO getById(String id) {
 		User user = userRepository.findById(id).get();
-		UserDTO userDTO = new UserDTO(user.getUserID(), user.getFullname(), user.getPhone(), user.getAddress(),
-				user.getEmail(), user.getGender(), user.getDOB());
-
+		UserDTO userDTO = new UserDTO(user);
 		return userDTO;
 	}
 
 	@Override
 	public void add(User user) throws Exception {
-		User entityHasSameEmail = userRepository.findByEmail(user.getEmail());
+
+		User entityHasSameEmail = null;
+		List<User> listUsers = userRepository.findAll();
+		for (User user2 : listUsers) {
+			if (user2.getEmail() == user.getEmail()) {
+				entityHasSameEmail = user2;
+			}
+		}
 		if (entityHasSameEmail == null) {
 			String hashPassword = BCrypt.hashpw(user.getPswd(), BCrypt.gensalt());
 			user.setPswd(hashPassword);
@@ -51,9 +56,15 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public ShippingInfoDTO getShippingInfoByEmail(String email) {
-		User user = userRepository.findByEmail(email);
-		ShippingInfoDTO shippingInfoDTO = new ShippingInfoDTO(user.getFullname(), user.getPhone(), user.getAddress());
+		User user = null;
+		List<User> listUsers = userRepository.findAll();
+		for (User user2 : listUsers) {
+			if (user2.getEmail() == email) {
+				user = user2;
+			}
+		}
 
+		ShippingInfoDTO shippingInfoDTO = new ShippingInfoDTO(user);
 		return shippingInfoDTO;
 	}
 

@@ -2,6 +2,16 @@ package com.techshopbe.dto;
 
 import java.util.List;
 
+import com.techshopbe.entity.Invoice;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+// chi tiet hoa don
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 // hoa don
 public class InvoiceDTO {
 	List<DetailedInvoiceDTO> detailedInvoices;
@@ -18,88 +28,16 @@ public class InvoiceDTO {
 	private String invoiceDate;
 	
 
-	public String getInvoiceDate() {
-		return invoiceDate;
-	}
-
-	public void setInvoiceDate(String invoiceDate) {
-		this.invoiceDate = invoiceDate;
-	}
-
-	public String getShippingDate() {
-		return shippingDate;
-	}
-
-	public void setShippingDate(String shippingDate) {
-		this.shippingDate = shippingDate;
-	}
-
-	public InvoiceDTO() {
-
-	}
-
-	public String getStatusInvoice() {
-		return statusInvoice;
-	}
-
-	public void setStatusInvoice(String statusInvoice) {
-		this.statusInvoice = statusInvoice;
-	}
-
-	public ShippingInfoDTO getShippingInfo() {
-		return shippingInfo;
-	}
-
-	public void setShippingInfo(ShippingInfoDTO shippingInfo) {
-		this.shippingInfo = shippingInfo;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getTotalPrice() {
-		return totalPrice;
-	}
-
-	public void setTotalPrice(int totalPrice) {
-		this.totalPrice = totalPrice;
-	}
-
-	public String getNote() {
-		return note;
-	}
-
-	public void setNote(String note) {
-		this.note = note;
-	}
-
-	public List<DetailedInvoiceDTO> getDetailedInvoices() {
-		return detailedInvoices;
-	}
-
-	public void setDetailedInvoices(List<DetailedInvoiceDTO> detailedInvoices) {
-		this.detailedInvoices = detailedInvoices;
-	}
-
-	public InvoiceDTO(List<DetailedInvoiceDTO> detailedInvoices, ShippingInfoDTO shippingInfo, String email,
-			int totalPrice, String note, String statusInvoice, String shippingDate, String invoiceDate) {
-		super();
+	public InvoiceDTO(List<DetailedInvoiceDTO> detailedInvoices, ShippingInfoDTO shippingInfo, Invoice invoice) {
 		this.detailedInvoices = detailedInvoices;
 		this.shippingInfo = shippingInfo;
-		this.email = email;
-		this.totalPrice = totalPrice;
-		this.note = note;
-		this.statusInvoice = statusInvoice;
-		this.shippingDate = shippingDate;
-		this.invoiceDate = invoiceDate;
+		this.email = shippingInfo.getFullname();
+		totalPrice = invoice.getTotalCost();
+		note = invoice.getNote();
+		statusInvoice = invoice.getStatusInvoice();
+		shippingDate = invoice.getShippingDate();
+		invoiceDate = invoice.getInvoiceDate();
 	}
 
-	
-	
 
 }

@@ -1,6 +1,7 @@
 package com.techshopbe.service.impl;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,13 @@ import com.google.gson.Gson;
 import com.techshopbe.dto.DetailedInvoiceDTO;
 import com.techshopbe.dto.InvoiceDTO;
 import com.techshopbe.dto.ShippingInfoDTO;
+import com.techshopbe.entity.Category;
 import com.techshopbe.entity.DetailedInvoice;
 import com.techshopbe.entity.Invoice;
+import com.techshopbe.entity.Product;
 import com.techshopbe.entity.ShippingInfo;
+import com.techshopbe.entity.User;
+import com.techshopbe.repository.CategoryRepository;
 import com.techshopbe.repository.DetailedInvoiceRepository;
 import com.techshopbe.repository.InvoiceRepository;
 import com.techshopbe.repository.ProductRepository;
@@ -30,6 +35,8 @@ public class InvoiceServiceImpl implements InvoiceService {
 	ProductRepository productRepository;
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	CategoryRepository categoryRepository;
 	@Autowired
 	InvoiceRepository invoiceRepository;
 	@Autowired
@@ -76,49 +83,64 @@ public class InvoiceServiceImpl implements InvoiceService {
 		// totalInvoices: lưu tổng số hoá đơn của người dùng
 		// userInvoiceIndex: là key phân biệt các invoice (không lấy newest id)
 		// (userInvoiceIndex = email + totalInvoices)
-		int totalInvoices = userRepository.findTotalInvoicesByEmail(email);
-		String userInvoiceIndex = email + String.valueOf(totalInvoices);
+		int totalInvoices = 0;
+		List<User> listUsers = userRepository.findAll();
+		for (User user2 : listUsers) {
+			if (user2.getEmail() == email) {
+				totalInvoices = user2.getTotalInvoices();
+			}
 
-		Invoice invoiceEntity = new Invoice();
-		invoiceEntity.setUserID(userID);
-		invoiceEntity.setTotalCost(invoiceDTO.getTotalPrice());
-		invoiceEntity.setInvoiceDate(invoiceDate.toString());
-		invoiceEntity.setShippingDate(shippingDate.toString());
-		invoiceEntity.setNote(invoiceDTO.getNote());
-		invoiceEntity.setOtherShippingAddress(otherShippingAddress);
-		invoiceEntity.setUserInvoiceIndex(userInvoiceIndex);
+			String userInvoiceIndex = email + String.valueOf(totalInvoices);
 
-		invoiceEntity = invoiceRepository.save(invoiceEntity);
-		// after insert invoice, increase totalInvoices of user
-		userRepository.updateTotalInvoicesByEmail(totalInvoices + 1, email);
+			Invoice invoiceEntity = new Invoice();
+			invoiceEntity.setUserID(userID);
+			invoiceEntity.setTotalCost(invoiceDTO.getTotalPrice());
+			invoiceEntity.setInvoiceDate(invoiceDate.toString());
+			invoiceEntity.setShippingDate(shippingDate.toString());
+			invoiceEntity.setNote(invoiceDTO.getNote());
+			invoiceEntity.setOtherShippingAddress(otherShippingAddress);
+			invoiceEntity.setUserInvoiceIndex(userInvoiceIndex);
 
-		/*
-		 * Insert new shipping
-		 */
-		// get current invoice ID through userInvoiceIndex
-		String invoiceID = invoiceRepository.findInvoiceIDByUserInvoiceIndex(userInvoiceIndex);
+			invoiceEntity = invoiceRepository.save(invoiceEntity);
+			// after insert invoice, increase totalInvoices of user
+			for (User user3 : listUsers) {
+				if (user3.getEmail() == email) {
+					user3.setTotalInvoices(totalInvoices);
+				}
+				/*
+				 * Insert new shipping
+				 */
+				// get current invoice ID through userInvoiceIndex
+				String invoiceID = null;
+				List<Invoice> listInvoices = invoiceRepository.findAll();
+				for (Invoice invoice1 : listInvoices) {
+					if (invoice1.getUserInvoiceIndex() == userInvoiceIndex)
+						invoiceID = invoice1.getInvoiceID();
+				}
+				// SHIPPINGINFO invoiceID, fullname, phone, address
+				ShippingInfo shippingInfo = new ShippingInfo();
+				shippingInfo.setInvoiceID(invoiceID);
+				shippingInfo.setAddress(invoiceDTO.getShippingInfo().getAddress());
+				shippingInfo.setFullname(invoiceDTO.getShippingInfo().getFullname());
+				shippingInfo.setPhone(invoiceDTO.getShippingInfo().getPhone());
+				shippingInfoRepository.save(shippingInfo);
 
-		// SHIPPINGINFO invoiceID, fullname, phone, address
-		ShippingInfo shippingInfo = new ShippingInfo();
-		shippingInfo.setInvoiceID(invoiceID);
-		shippingInfo.setAddress(invoiceDTO.getShippingInfo().getAddress());
-		shippingInfo.setFullname(invoiceDTO.getShippingInfo().getFullname());
-		shippingInfo.setPhone(invoiceDTO.getShippingInfo().getPhone());
-		shippingInfoRepository.save(shippingInfo);
+				/*
+				 * Insert new DETAILED INVOICE
+				 */
 
-		/*
-		 * Insert new DETAILED INVOICE
-		 */
+				// DETAILEDINVOICE (invoiceID, productID, quantity, price)
+				for (DetailedInvoiceDTO detailedInvoiceDTO : invoiceDTO.getDetailedInvoices()) {
+					DetailedInvoice detailedInvoice = new DetailedInvoice();
+					detailedInvoice.setInvoiceID(invoiceID);
+					detailedInvoice.setPrice(detailedInvoiceDTO.getProductPrice());
+					detailedInvoice.setProductID(detailedInvoiceDTO.getProductID());
+					detailedInvoice.setQuantity(detailedInvoiceDTO.getQuantity());
+					detailedInvoice.setTotalPrice(detailedInvoiceDTO.getTotalPrice());
+					detailedInvoiceRepository.save(detailedInvoice);
+				}
 
-		// DETAILEDINVOICE (invoiceID, productID, quantity, price)
-		for (DetailedInvoiceDTO detailedInvoiceDTO : invoiceDTO.getDetailedInvoices()) {
-			DetailedInvoice detailedInvoice = new DetailedInvoice();
-			detailedInvoice.setInvoiceID(invoiceID);
-			detailedInvoice.setPrice(detailedInvoiceDTO.getProductPrice());
-			detailedInvoice.setProductID(detailedInvoiceDTO.getProductID());
-			detailedInvoice.setQuantity(detailedInvoiceDTO.getQuantity());
-			detailedInvoice.setTotalPrice(detailedInvoiceDTO.getTotalPrice());
-			detailedInvoiceRepository.save(detailedInvoice);
+			}
 		}
 
 	}
@@ -127,7 +149,13 @@ public class InvoiceServiceImpl implements InvoiceService {
 
 		for (DetailedInvoiceDTO detailedInvoice : detailedInvoices) {
 			// System.out.println(detailedInvoice.getProductID());
-			int price = productRepository.findProductPriceByProductID(detailedInvoice.getProductID());
+			int price = 0;
+			List<Product> listProducts = productRepository.findAll();
+			for (Product product : listProducts) {
+				if (product.getProductID() == detailedInvoice.getProductID()) {
+					price = product.getProductPrice();
+				}
+			}
 
 			int totalPrice = price * detailedInvoice.getQuantity();
 
@@ -138,7 +166,15 @@ public class InvoiceServiceImpl implements InvoiceService {
 	}
 
 	public ShippingInfoDTO getShippingInfo(String email) {
-		return userRepository.findShippingInfoByEmail(email);
+		List<User> listUsers = userRepository.findAll();
+		ShippingInfoDTO shippingInfoDTO = null;
+		for (User user : listUsers) {
+			if (user.getEmail() == email)
+				;
+			shippingInfoDTO = new ShippingInfoDTO(user);
+		}
+
+		return shippingInfoDTO;
 	}
 
 	public int calculateTotalInvoiceCost(List<DetailedInvoiceDTO> detailedInvoices) {
@@ -161,8 +197,24 @@ public class InvoiceServiceImpl implements InvoiceService {
 
 	@Override
 	public InvoiceDTO getByInvoiceID(String invoiceID) {
-		List<DetailedInvoiceDTO> detailedInvoices = detailedInvoiceRepository.findAllByInvoiceID(invoiceID);
-		ShippingInfoDTO shippingInfo = shippingInfoRepository.findByInvoiceID(invoiceID);
+		List<DetailedInvoiceDTO> detailedInvoices = new ArrayList<>();
+		List<DetailedInvoice> listDetailedInvoices = detailedInvoiceRepository.findAll();
+		for (DetailedInvoice detailedInvoice : listDetailedInvoices) {
+			if (detailedInvoice.getInvoiceID() == invoiceID) {
+				Product product = productRepository.findById(detailedInvoice.getProductID()).get();
+				Category category = categoryRepository.findById(product.getCategoryID()).get();
+				DetailedInvoiceDTO detailedInvoiceDTO = new DetailedInvoiceDTO(detailedInvoice, null, null);
+				detailedInvoices.add(detailedInvoiceDTO);
+			}
+		}
+		ShippingInfoDTO shippingInfo=null;
+		List<ShippingInfo> listShippingInfos = shippingInfoRepository.findAll();
+			for (ShippingInfo shippingInfo2 : listShippingInfos) {
+				if(shippingInfo2.getInvoiceID()==invoiceID)
+					{
+						User user = userRepository.findById(invoiceRepository.findByInvoiceID(invoiceID).getUserID()).get();
+						shippingInfo = new ShippingInfoDTO(user);}
+			}
 		Invoice invoice = invoiceRepository.findByInvoiceID(invoiceID);
 
 		InvoiceDTO invoiceDTO = new InvoiceDTO();
@@ -179,7 +231,6 @@ public class InvoiceServiceImpl implements InvoiceService {
 
 	@Override
 	public void updateReviewStatus(String invoiceID, String productID) {
-		detailedInvoiceRepository.updateRatingInfoByProductID(invoiceID, productID);
 
 	}
 
