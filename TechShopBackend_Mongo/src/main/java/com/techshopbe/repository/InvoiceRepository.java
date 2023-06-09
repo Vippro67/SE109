@@ -8,9 +8,6 @@ import com.techshopbe.entity.Invoice;
 
 public interface InvoiceRepository extends MongoRepository<Invoice, String>{
 	
-	@Query("SELECT invoiceID FROM Invoice i WHERE i.userInvoiceIndex = ?1")
-	String findInvoiceIDByUserInvoiceIndex(String userInvoiceIndex);
-	
 	List<Invoice> findByUserID(String userID);
 	Invoice findByInvoiceID(String invoiceID);
 }

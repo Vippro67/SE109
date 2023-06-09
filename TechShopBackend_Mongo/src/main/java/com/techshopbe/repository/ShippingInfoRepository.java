@@ -8,6 +8,4 @@ import com.techshopbe.entity.ShippingInfo;
 
 public interface ShippingInfoRepository extends MongoRepository<ShippingInfo, String> {
 
-	@Query("SELECT new com.techshopbe.dto.ShippingInfoDTO(s.fullname, s.phone, s.address) FROM ShippingInfo s WHERE s.invoiceID = ?1")
-	ShippingInfoDTO findByInvoiceID(String invoiceID);
 }

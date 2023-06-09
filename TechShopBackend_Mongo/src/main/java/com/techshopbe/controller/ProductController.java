@@ -55,7 +55,6 @@ public class ProductController {
 	public Object getTopPurchasedProducts(@PathVariable String categoryID) {
 		try {
 			List<ProductDTO> topPurchasedProducts = productService.getTopPurchasedProducts(categoryID);
-
 			return new ResponseEntity<List<ProductDTO>>(topPurchasedProducts, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<String>("Failed", HttpStatus.BAD_REQUEST);
