@@ -1,4 +1,3 @@
-package com.techshopbe.dto;
 
 import com.techshopbe.entity.Brand;
 import com.techshopbe.entity.Category;
@@ -29,6 +28,7 @@ public class ProductDTO {
 	private String specs;
 	private String categorySlug;
 	private String images;
+
 
 	public ProductDTO(Product product, Brand brand, Category category) {
 		super();

@@ -84,20 +84,14 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductDTO> getProductsByCategory(String categorySlug) {
 
-		List<Product> listProducts = productRepository.findAll();
+		Category category = categoryRepository.findByCategorySlug(categorySlug);
+		List<Product> listProducts = productRepository.findByCategoryID(category.getCategoryID());
 		List<ProductDTO> listProductDTOs = new ArrayList<ProductDTO>();
 		Optional<Brand> brand;
-
-		Optional<Category> category;
 		for (Product product : listProducts) {
 			brand = brandRepository.findById(product.getBrandID());
-
-			category = categoryRepository.findById(product.getCategoryID());
-			if (category.get().getCategorySlug().equals(categorySlug)) {
-				ProductDTO productDTO = new ProductDTO(product, brand.get(), category.get());
-				listProductDTOs.add(productDTO);
-
-			}
+			ProductDTO productDTO = new ProductDTO(product, brand.get(), category);
+			listProductDTOs.add(productDTO);
 		}
 		return listProductDTOs;
 	}
@@ -119,13 +113,11 @@ public class ProductServiceImpl implements ProductService {
 		Optional<Product> product = productRepository.findById(productID);
 		Optional<Brand> brand = brandRepository.findById(product.get().getBrandID());
 		Optional<Category> category = categoryRepository.findById(product.get().getCategoryID());
-		List<Product> listProducts = productRepository.findAll();
+		List<Product> listProducts = productRepository.findByCategoryID(product.get().getCategoryID());
 		List<ProductDTO> relatedProducts = new ArrayList<ProductDTO>();
 		for (Product product2 : listProducts) {
-			if (product2.getCategoryID().equals(category.get().getCategoryID())) {
-				ProductDTO productDTO = new ProductDTO(product2, brand.get(), category.get());
-				relatedProducts.add(productDTO);
-			}
+			ProductDTO productDTO = new ProductDTO(product2, brand.get(), category.get());
+			relatedProducts.add(productDTO);
 			if (relatedProducts.size() >= 4)
 				break;
 		}
@@ -138,13 +130,12 @@ public class ProductServiceImpl implements ProductService {
 		Optional<Product> product = productRepository.findById(productID);
 		Optional<Brand> brand = brandRepository.findById(product.get().getBrandID());
 		Optional<Category> category = categoryRepository.findById(product.get().getCategoryID());
-		List<Product> listProducts = productRepository.findAll();
+		List<Product> listProducts = productRepository.findByBrandID(product.get().getBrandID());
 		List<ProductDTO> relatedProducts = new ArrayList<ProductDTO>();
 		for (Product product2 : listProducts) {
-			if (product2.getBrandID().equals(brand.get().getBrandID())) {
-				ProductDTO productDTO = new ProductDTO(product2, brand.get(), category.get());
-				relatedProducts.add(productDTO);
-			}
+			ProductDTO productDTO = new ProductDTO(product2, brand.get(), category.get());
+			relatedProducts.add(productDTO);
+
 			if (relatedProducts.size() >= 4)
 				break;
 		}
@@ -163,8 +154,8 @@ public class ProductServiceImpl implements ProductService {
 
 		product.get().setTotalReviews(newTotalReviews);
 		product.get().setProductRate(newRating);
-	}
 
+	}
 	@Override
 	public List<ProductDTO> getProductToAdvise(String categoryName, String brandName, double PriceMax,
 			double PriceMin) {
