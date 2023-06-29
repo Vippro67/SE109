@@ -14,9 +14,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import "./_app.scss";
 
+import Chat from "components/Chat";
+
 function App() {
   console.log("app");
   return (
+    <>
     <div className="wrapper">
       <div className="main-content">
         <Router>
@@ -61,6 +64,8 @@ function App() {
         </Router>
       </div>
     </div>
+    <Chat></Chat>            
+    </>
   );
 }
 

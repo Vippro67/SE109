@@ -1,4 +1,4 @@
-package com.techshopbe.dto;
+
 import com.techshopbe.entity.Brand;
 import com.techshopbe.entity.Category;
 import com.techshopbe.entity.Product;
@@ -21,13 +21,14 @@ public class ProductDTO {
 	private int productPrice;
 	private String shortDescrip;
 	private String longDescrip;
+	private String shortTech;
 	private int stock;
 	private int warranty;
 	private int purchased;
 	private String specs;
 	private String categorySlug;
 	private String images;
-	
+
 
 	public ProductDTO(Product product, Brand brand, Category category) {
 		super();
@@ -39,6 +40,7 @@ public class ProductDTO {
 		productPrice = product.getProductPrice();
 		shortDescrip = product.getShortDescrip();
 		longDescrip = product.getLongDescrip();
+		shortTech = product.getShortTech();
 		stock = product.getStock();
 		warranty = product.getWarranty();
 		purchased = product.getPurchased();

@@ -16,6 +16,7 @@ import com.techshopbe.repository.BrandRepository;
 import com.techshopbe.repository.CategoryRepository;
 import com.techshopbe.repository.ProductRepository;
 import com.techshopbe.service.ProductService;
+import org.springframework.data.domain.Sort;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -134,6 +135,7 @@ public class ProductServiceImpl implements ProductService {
 		for (Product product2 : listProducts) {
 			ProductDTO productDTO = new ProductDTO(product2, brand.get(), category.get());
 			relatedProducts.add(productDTO);
+
 			if (relatedProducts.size() >= 4)
 				break;
 		}
@@ -152,6 +154,37 @@ public class ProductServiceImpl implements ProductService {
 
 		product.get().setTotalReviews(newTotalReviews);
 		product.get().setProductRate(newRating);
+
+	}
+	@Override
+	public List<ProductDTO> getProductToAdvise(String categoryName, String brandName, double PriceMax,
+			double PriceMin) {
+		Sort sort = Sort.by(Sort.Direction.DESC, "productRate");
+		List<Product> products = productRepository.findAll(sort);
+
+		List<Brand> brands = brandRepository.findByBrandName(brandName);
+		String brandID = brands.size() > 0 ? brands.get(0).getBrandID() : "";
+		System.out.println(brandID);
+		List<Category> categorys = categoryRepository.findByCategoryName(categoryName);
+		String categoryID = categorys.size() > 0 ? categorys.get(0).getCategoryID() : "";
+		System.out.println(categoryID);
+
+		Optional<Brand> brand = brandRepository.findById(brandID);
+		Optional<Category> category = categoryRepository.findById(categoryID);
+
+		List<ProductDTO> ProductsToAdvise = new ArrayList<ProductDTO>();
+		System.out.println(PriceMax);
+		for (Product product : products) {
+			if (product.getCategoryID().equals(categoryID) &&
+					product.getBrandID().equals(brandID)
+					&& product.getProductPrice() >= PriceMin && product.getProductPrice() <= PriceMax) {
+				ProductDTO productDTO = new ProductDTO(product, brand.get(), category.get());
+				ProductsToAdvise.add(productDTO);
+			}
+			if (ProductsToAdvise.size() == 1)
+				break;
+		}
+		return ProductsToAdvise;
 	}
 
 }
