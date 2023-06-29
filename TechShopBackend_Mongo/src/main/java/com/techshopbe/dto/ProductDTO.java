@@ -1,3 +1,4 @@
+package com.techshopbe.dto;
 
 import com.techshopbe.entity.Brand;
 import com.techshopbe.entity.Category;
