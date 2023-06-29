@@ -1,7 +1,7 @@
 spring:
     data:
       mongodb:
-        uri : mongodb+srv://20522103:123123Hihi@cluster.dog9q7r.mongodb.net/?retryWrites=true&w=majority
+        uri : ${URIMONGO}
         database : techshop
 server:
   port: 8080
