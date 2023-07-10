@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.techshopbe.dto.DetailedProductDTO;
 import com.techshopbe.dto.ProductDTO;
@@ -27,6 +28,7 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 
+	@Cacheable("allProducts")
 	@Override
 	public List<ProductDTO> getAll() {
 		List<Product> listProduct = productRepository.findAll();
@@ -44,6 +46,7 @@ public class ProductServiceImpl implements ProductService {
 		return listProductDTO;
 	}
 
+	@Cacheable("trendingProducts")
 	@Override
 	public List<ProductDTO> getTrendingProducts() {
 		List<Product> listProduct = productRepository.findAll();
@@ -63,6 +66,7 @@ public class ProductServiceImpl implements ProductService {
 		return listProductDTO;
 	}
 
+	@Cacheable("topPurchasedProducts")
 	@Override
 	public List<ProductDTO> getTopPurchasedProducts(String categoryID) {
 
