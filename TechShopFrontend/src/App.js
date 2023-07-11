@@ -17,7 +17,6 @@ import "./_app.scss";
 import Chat from "components/Chat";
 
 function App() {
-  console.log("app");
   return (
     <>
     <div className="wrapper">

@@ -42,7 +42,7 @@ public class JWTAuthenticationFilter extends BasicAuthenticationFilter {
 				
 				String email = Jwts
 						.parser()
-						.setSigningKey("ngocthinh")
+						.setSigningKey("123123Hihi")
 						.parseClaimsJws(token)
 						.getBody()
 						.getSubject();

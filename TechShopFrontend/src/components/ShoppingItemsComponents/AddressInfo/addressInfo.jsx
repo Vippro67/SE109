@@ -14,7 +14,6 @@ function AddressInfo(props) {
     );
   };
   const renderAddressInfo = (info) => {
-    console.log(info)
     if (Object.keys(info).length === 0) {
       return (
         <div className="text-center">

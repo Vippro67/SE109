@@ -23,10 +23,10 @@ public class InvoiceController {
 	@Autowired
 	InvoiceService invoiceService;
 	
-	@PostMapping(value = "")
+	@PostMapping()
 	public Object add(@RequestBody String invoice) {
 		try {
-			invoiceService.add(invoice);
+			
 			return new ResponseEntity<String>("Order Successfully!", HttpStatus.CREATED);
 		} catch(Exception e) {
 			

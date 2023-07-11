@@ -41,8 +41,7 @@ public class UserController {
 	public Object getShippinhInfo() {
 		try {
 			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			String email = userDetails.getUsername();
-			
+			String email = userDetails.getUsername();			
 			ShippingInfoDTO shippingInfoDTO = userService.getShippingInfoByEmail(email);
 			
 			return new ResponseEntity<ShippingInfoDTO>(shippingInfoDTO, HttpStatus.OK);

@@ -59,11 +59,10 @@ public class UserServiceImpl implements UserService {
 		User user = null;
 		List<User> listUsers = userRepository.findAll();
 		for (User user2 : listUsers) {
-			if (user2.getEmail() == email) {
+			if (user2.getEmail().equals(email)) {
 				user = user2;
 			}
 		}
-
 		ShippingInfoDTO shippingInfoDTO = new ShippingInfoDTO(user);
 		return shippingInfoDTO;
 	}

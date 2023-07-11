@@ -24,7 +24,7 @@ public class Invoice {
 	private boolean otherShippingAddress;
 	private String statusInvoice= "PENDING";
 	private String userInvoiceIndex;
-	public void setDetailedInvoices(List<Invoice> detailedInvoices) {
+	public void setDetailedInvoices(List<DetailedInvoice> detailedInvoices) {
 	}
     public void setShippingInfo(ShippingInfo shippingInfo) {
     }

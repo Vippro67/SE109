@@ -4,7 +4,6 @@ const ProductApi = {
   getAllProducts: async (params) => {
     //let { order } = params;
     const url = `${UrlConstant.GET_ALL_PRODUCTS}`;
-    console.log("a");
     return axiosClient.get(url);
   },
   getProductsByCategory: async (params) => {
