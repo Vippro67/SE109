@@ -17,16 +17,16 @@ import com.techshopbe.entity.Invoice;
 import com.techshopbe.service.InvoiceService;
 
 @RestController
-@RequestMapping("api/v1/invoice")
-
+@RequestMapping("api/v1/invoiced")
 public class InvoiceController {
-	@Autowired
-	InvoiceService invoiceService;
-	
+
+    @Autowired
+    InvoiceService invoiceService;
+
 	@PostMapping()
 	public Object add(@RequestBody String invoice) {
 		try {
-			
+			invoiceService.add(invoice);
 			return new ResponseEntity<String>("Order Successfully!", HttpStatus.CREATED);
 		} catch(Exception e) {
 			
@@ -54,6 +54,4 @@ public class InvoiceController {
 			return new ResponseEntity<String>("Failed", HttpStatus.BAD_REQUEST);
 		}
 	}
-	
-
 }

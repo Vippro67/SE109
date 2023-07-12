@@ -28,4 +28,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPswd(), new ArrayList<>());
     }
 
+    public String getUserIDByEmail(String s)
+    {
+        User user = userRepo.findFirstByEmail(s);
+        if (user == null)
+            throw new UsernameNotFoundException("Email not found",null);
+        return user.getEmail();
+    }
 }
