@@ -23,13 +23,12 @@ public class ProductController {
 
 	@GetMapping(value = "")
 	public Object index() {
-		// try {
-		// 	List<ProductDTO> productList = productService.getAll();
-		// 	return new ResponseEntity<List<ProductDTO>>(productList, HttpStatus.OK);
-		// } catch (Exception e) {
-		// 	return new ResponseEntity<String>("Failed", HttpStatus.BAD_REQUEST);
-		// }
-		return "Product";
+		try {
+		List<ProductDTO> productList = productService.getAll();
+		return new ResponseEntity<List<ProductDTO>>(productList, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<String>("Failed", HttpStatus.BAD_REQUEST);
+		}
 	}
 
 	@GetMapping(value = "/{productID}")
