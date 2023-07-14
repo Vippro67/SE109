@@ -126,7 +126,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 		// DETAILEDINVOICE (invoiceID, productID, quantity, price)
 		for (DetailedInvoiceDTO detailedInvoiceDTO : invoiceDTO.getDetailedInvoices()) {
 			DetailedInvoice detailedInvoice = new DetailedInvoice();
-			detailedInvoice.setInvoiceID(invoiceID);
+			detailedInvoice.setInvoiceID(invoiceEntity.getInvoiceID());
 			detailedInvoice.setPrice(detailedInvoiceDTO.getProductPrice());
 			detailedInvoice.setProductID(detailedInvoiceDTO.getProductID());
 			detailedInvoice.setQuantity(detailedInvoiceDTO.getQuantity());
