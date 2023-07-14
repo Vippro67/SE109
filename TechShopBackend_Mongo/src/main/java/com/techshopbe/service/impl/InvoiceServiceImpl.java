@@ -198,17 +198,17 @@ public class InvoiceServiceImpl implements InvoiceService {
 		List<DetailedInvoiceDTO> detailedInvoices = new ArrayList<>();
 		List<DetailedInvoice> listDetailedInvoices = detailedInvoiceRepository.findAll();
 		for (DetailedInvoice detailedInvoice : listDetailedInvoices) {
-			if (detailedInvoice.getInvoiceID() == invoiceID) {
+			if (detailedInvoice.getInvoiceID().equals(invoiceID)) {
 				Product product = productRepository.findById(detailedInvoice.getProductID()).get();
 				Category category = categoryRepository.findById(product.getCategoryID()).get();
-				DetailedInvoiceDTO detailedInvoiceDTO = new DetailedInvoiceDTO(detailedInvoice, null, null);
+				DetailedInvoiceDTO detailedInvoiceDTO = new DetailedInvoiceDTO(detailedInvoice, product, category);
 				detailedInvoices.add(detailedInvoiceDTO);
 			}
 		}
 		ShippingInfoDTO shippingInfo = null;
 		List<ShippingInfo> listShippingInfos = shippingInfoRepository.findAll();
 		for (ShippingInfo shippingInfo2 : listShippingInfos) {
-			if (shippingInfo2.getInvoiceID() == invoiceID) {
+			if (shippingInfo2.getInvoiceID().equals(invoiceID)) {
 				User user = userRepository.findById(invoiceRepository.findByInvoiceID(invoiceID).getUserID()).get();
 				shippingInfo = new ShippingInfoDTO(user);
 			}

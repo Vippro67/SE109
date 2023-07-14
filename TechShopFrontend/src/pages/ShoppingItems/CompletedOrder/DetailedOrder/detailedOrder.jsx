@@ -21,7 +21,7 @@ function DetailedOrder(props) {
   const updateReviewStatus = (id) => {
     let info = { ...detailedInfo };
     for (let invoice of info.detailedInvoices) {
-      if (invoice.productID === parseInt(id)) {
+      if (invoice.productID == id) {
         invoice.isReviewed = true;
         break;
       }
