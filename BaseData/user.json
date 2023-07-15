@@ -1,0 +1,26 @@
+[{
+  "_id": "2",
+  "fullname": "Phùng KL",
+  "email": "linh@gmail.com",
+  "pswd": "$2a$10$YfwOlff4GSGqUiG5ohxBZu3y42ppGXTyOpPeFM/Z27iV3dTqmwgXq",
+  "DOB": "2000-01-01",
+  "phone": "0904588091",
+  "address": "39A Đoàn Thị Điểm",
+  "roleID": "1",
+  "gender": "female",
+  "totalInvoices": "0",
+  "isDeleted": "0"
+},
+{
+  "_id": "1",
+  "fullname": "Đinh Ngọc UP",
+  "email": "phuong@gmail.com",
+  "pswd": "$2a$10$YfwOlff4GSGqUiG5ohxBZu3y42ppGXTyOpPeFM/Z27iV3dTqmwgXq",
+  "DOB": "2000-01-01",
+  "phone": "0904588091",
+  "address": "39/4/37 Huynh Van Banh",
+  "roleID": "1",
+  "gender": "female",
+  "totalInvoices": "0",
+  "isDeleted": "0"
+}]

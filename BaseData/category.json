@@ -1,0 +1,77 @@
+[{
+  "_id": "2",
+  "categoryName": "PC Accessories",
+  "categorySlug": "pc-accessories",
+  "categoryExact": "0",
+  "isDeleted": "0"
+},
+{
+  "_id": "6",
+  "categoryName": "Gaming Desk/Chair",
+  "categorySlug": "gaming-desk-chair",
+  "categoryExact": "0",
+  "isDeleted": "0"
+},
+{
+  "_id": "11",
+  "categoryName": "All",
+  "categorySlug": "",
+  "categoryExact": "1",
+  "isDeleted": "0"
+},
+{
+  "_id": "10",
+  "categoryName": "Smart Phone",
+  "categorySlug": "smart-phone",
+  "categoryExact": "0",
+  "isDeleted": "0"
+},
+{
+  "_id": "8",
+  "categoryName": "Monitor",
+  "categorySlug": "monitor",
+  "categoryExact": "0",
+  "isDeleted": "0"
+},
+{
+  "_id": "4",
+  "categoryName": "HeadPhone",
+  "categorySlug": "headphone",
+  "categoryExact": "0",
+  "isDeleted": "0"
+},
+{
+  "_id": "3",
+  "categoryName": "Audio System",
+  "categorySlug": "audio-system",
+  "categoryExact": "0",
+  "isDeleted": "0"
+},
+{
+  "_id": "5",
+  "categoryName": "Mouse",
+  "categorySlug": "mouse",
+  "categoryExact": "0",
+  "isDeleted": "0"
+},
+{
+  "_id": "1",
+  "categoryName": "Smart Watch",
+  "categorySlug": "smart-watch",
+  "categoryExact": "0",
+  "isDeleted": "0"
+},
+{
+  "_id": "7",
+  "categoryName": "Laptop",
+  "categorySlug": "laptop",
+  "categoryExact": "0",
+  "isDeleted": "0"
+},
+{
+  "_id": "9",
+  "categoryName": "Keyboard",
+  "categorySlug": "keyboard",
+  "categoryExact": "0",
+  "isDeleted": "0"
+}]

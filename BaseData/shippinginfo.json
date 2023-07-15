@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "64ae33615b4a7f4fa2a07e97"
+  },
+  "invoiceID": "64ae33615b4a7f4fa2a07e96",
+  "fullname": "Đinh Ngọc UP",
+  "phone": "0904588091",
+  "address": "39/4/37 Huynh Van Banh",
+  "_class": "com.techshopbe.entity.ShippingInfo"
+},
+{
+  "_id": {
+    "$oid": "64ae33c35b4a7f4fa2a07e9b"
+  },
+  "invoiceID": "64ae33c35b4a7f4fa2a07e9a",
+  "fullname": "Đinh Ngọc UP",
+  "phone": "0904588091",
+  "address": "39/4/37 Huynh Van Banh",
+  "_class": "com.techshopbe.entity.ShippingInfo"
+},
+{
+  "_id": {
+    "$oid": "64aeb1f35b2066038a55721e"
+  },
+  "invoiceID": "64aeb1f35b2066038a55721d",
+  "fullname": "Đinh Ngọc UP",
+  "phone": "0904588091",
+  "address": "39/4/37 Huynh Van Banh",
+  "_class": "com.techshopbe.entity.ShippingInfo"
+},
+{
+  "_id": {
+    "$oid": "64b003a0a6f8855678f79a04"
+  },
+  "invoiceID": "64b003a0a6f8855678f79a03",
+  "fullname": "Đinh Ngọc UP",
+  "phone": "0904588091",
+  "address": "39/4/37 Huynh Van Banh",
+  "_class": "com.techshopbe.entity.ShippingInfo"
+},
+{
+  "_id": {
+    "$oid": "64b1579c262d9000e9d678e0"
+  },
+  "invoiceID": "64b1579c262d9000e9d678df",
+  "fullname": "Đinh Ngọc UP",
+  "phone": "0904588091",
+  "address": "39/4/37 Huynh Van Banh",
+  "_class": "com.techshopbe.entity.ShippingInfo"
+},
+{
+  "_id": {
+    "$oid": "64b1591c3e1aeb2272fad324"
+  },
+  "invoiceID": "64b1591c3e1aeb2272fad323",
+  "fullname": "Đinh Ngọc UP",
+  "phone": "0904588091",
+  "address": "39/4/37 Huynh Van Banh",
+  "_class": "com.techshopbe.entity.ShippingInfo"
+},
+{
+  "_id": {
+    "$oid": "64b159b68d3e1712de50e6aa"
+  },
+  "invoiceID": "64b159b68d3e1712de50e6a9",
+  "fullname": "Đinh Ngọc UP",
+  "phone": "0904588091",
+  "address": "39/4/37 Huynh Van Banh",
+  "_class": "com.techshopbe.entity.ShippingInfo"
+},
+{
+  "_id": {
+    "$oid": "64b15c40eeb5064d69f39c7f"
+  },
+  "invoiceID": "64b15c40eeb5064d69f39c7e",
+  "fullname": "Đinh Ngọc UP",
+  "phone": "0904588091",
+  "address": "39/4/37 Huynh Van Banh",
+  "_class": "com.techshopbe.entity.ShippingInfo"
+}]

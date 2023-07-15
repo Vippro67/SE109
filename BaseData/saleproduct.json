@@ -1,0 +1,42 @@
+[{
+  "_id": "4",
+  "startSale": "2021-01-01",
+  "endSale": "2021-06-01",
+  "productPrice": "3000000",
+  "isDeleted": "0"
+},
+{
+  "_id": "3",
+  "startSale": "2021-01-01",
+  "endSale": "2021-05-01",
+  "productPrice": "3000000",
+  "isDeleted": "0"
+},
+{
+  "_id": "2",
+  "startSale": "2021-01-01",
+  "endSale": "2021-10-02",
+  "productPrice": "4000000",
+  "isDeleted": "0"
+},
+{
+  "_id": "6",
+  "startSale": "2021-01-01",
+  "endSale": "2021-10-03",
+  "productPrice": "1000000",
+  "isDeleted": "0"
+},
+{
+  "_id": "1",
+  "startSale": "2021-01-01",
+  "endSale": "2021-10-01",
+  "productPrice": "10000000",
+  "isDeleted": "0"
+},
+{
+  "_id": "5",
+  "startSale": "2021-01-01",
+  "endSale": "2021-12-01",
+  "productPrice": "4000000",
+  "isDeleted": "0"
+}]

@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "64b159b68d3e1712de50e6ab"
+  },
+  "invoiceID": "64b159b68d3e1712de50e6a9",
+  "productID": "39",
+  "quantity": 1,
+  "price": 3400000,
+  "totalPrice": 3400000,
+  "isReviewed": false,
+  "_class": "com.techshopbe.entity.DetailedInvoice"
+},
+{
+  "_id": {
+    "$oid": "64b15c41eeb5064d69f39c80"
+  },
+  "invoiceID": "64b15c40eeb5064d69f39c7e",
+  "productID": "43",
+  "quantity": 1,
+  "price": 1200000,
+  "totalPrice": 1200000,
+  "isReviewed": false,
+  "_class": "com.techshopbe.entity.DetailedInvoice"
+}]

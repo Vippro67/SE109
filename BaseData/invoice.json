@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "64b159b68d3e1712de50e6a9"
+  },
+  "userID": "1",
+  "totalCost": 3400000,
+  "invoiceDate": "2023-07-14T21:20:38.231621",
+  "shippingDate": "2023-07-17T21:20:38.231621",
+  "otherShippingAddress": false,
+  "statusInvoice": "PENDING",
+  "userInvoiceIndex": "phuong@gmail.com0",
+  "_class": "com.techshopbe.entity.Invoice"
+},
+{
+  "_id": {
+    "$oid": "64b15c40eeb5064d69f39c7e"
+  },
+  "userID": "2",
+  "totalCost": 1200000,
+  "invoiceDate": "2023-07-14T21:31:28.767810600",
+  "shippingDate": "2023-07-17T21:31:28.767810600",
+  "otherShippingAddress": false,
+  "statusInvoice": "PENDING",
+  "userInvoiceIndex": "linh@gmail.com0",
+  "_class": "com.techshopbe.entity.Invoice"
+}]

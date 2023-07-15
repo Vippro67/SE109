@@ -1,0 +1,279 @@
+[{
+  "_id": "1",
+  "productID": "1",
+  "userID": "1",
+  "reviewDate": "2021-03-03",
+  "reviewContent": "Sản phẩm được gói cẩn thận, chất lượng tốt, mẫu mã như quảng cáo",
+  "rate": "4.5",
+  "isDeleted": "0"
+},
+{
+  "_id": "3",
+  "productID": "1",
+  "userID": "2",
+  "reviewDate": "2021-03-05",
+  "reviewContent": "Màu sắc sản phầm không giống quảng cáo",
+  "rate": "3",
+  "isDeleted": "0"
+},
+{
+  "_id": "11",
+  "productID": "2",
+  "userID": "2",
+  "reviewDate": "2021-03-07",
+  "reviewContent": "Giao hàng quá chậm, sản phẩm có vẻ không chắc chắn như đã giới thiệu",
+  "rate": "2",
+  "isDeleted": "0"
+},
+{
+  "_id": "18",
+  "productID": "4",
+  "userID": "1",
+  "reviewDate": "2021-03-05",
+  "reviewContent": "Màu sắc sản phầm không giống quảng cáo",
+  "rate": "3",
+  "isDeleted": "0"
+},
+{
+  "_id": "6",
+  "productID": "1",
+  "userID": "1",
+  "reviewDate": "2021-03-08",
+  "reviewContent": "Sản phẩm đúng với quảng cáo, giao hàng nhanh, đóng gói đẹp",
+  "rate": "5",
+  "isDeleted": "0"
+},
+{
+  "_id": "31",
+  "productID": "2",
+  "userID": "1",
+  "reviewDate": "2021-01-07",
+  "reviewContent": "Giao hàng quá chậm, sản phẩm có vẻ không chắc chắn như đã giới thiệu",
+  "rate": "2",
+  "isDeleted": "0"
+},
+{
+  "_id": "5",
+  "productID": "1",
+  "userID": "1",
+  "reviewDate": "2021-03-07",
+  "reviewContent": "Giao hàng quá chậm, sản phẩm có vẻ không chắc chắn như đã giới thiệu",
+  "rate": "2",
+  "isDeleted": "0"
+},
+{
+  "_id": "2",
+  "productID": "1",
+  "userID": "2",
+  "reviewDate": "2021-03-04",
+  "reviewContent": "Sản phẩm rất đẹp",
+  "rate": "5",
+  "isDeleted": "0"
+},
+{
+  "_id": "26",
+  "productID": "1",
+  "userID": "1",
+  "reviewDate": "2021-03-12",
+  "reviewContent": "Màu sắc sản phầm không giống quảng cáo",
+  "rate": "3",
+  "isDeleted": "0"
+},
+{
+  "_id": "7",
+  "productID": "2",
+  "userID": "1",
+  "reviewDate": "2021-03-03",
+  "reviewContent": "Sản phẩm được gói cẩn thận, chất lượng tốt, mẫu mã như quảng cáo",
+  "rate": "4.5",
+  "isDeleted": "0"
+},
+{
+  "_id": "8",
+  "productID": "2",
+  "userID": "1",
+  "reviewDate": "2021-03-04",
+  "reviewContent": "Sản phẩm rất đẹp",
+  "rate": "5",
+  "isDeleted": "0"
+},
+{
+  "_id": "14",
+  "productID": "3",
+  "userID": "1",
+  "reviewDate": "2021-03-05",
+  "reviewContent": "Màu sắc sản phầm không giống quảng cáo",
+  "rate": "3",
+  "isDeleted": "0"
+},
+{
+  "_id": "15",
+  "productID": "3",
+  "userID": "1",
+  "reviewDate": "2021-03-06",
+  "reviewContent": "Sản phẩm tốt",
+  "rate": "4",
+  "isDeleted": "0"
+},
+{
+  "_id": "12",
+  "productID": "3",
+  "userID": "1",
+  "reviewDate": "2021-03-03",
+  "reviewContent": "Sản phẩm được gói cẩn thận, chất lượng tốt, mẫu mã như quảng cáo",
+  "rate": "4.5",
+  "isDeleted": "0"
+},
+{
+  "_id": "17",
+  "productID": "4",
+  "userID": "1",
+  "reviewDate": "2021-03-04",
+  "reviewContent": "Sản phẩm rất đẹp",
+  "rate": "5",
+  "isDeleted": "0"
+},
+{
+  "_id": "21",
+  "productID": "5",
+  "userID": "1",
+  "reviewDate": "2021-03-05",
+  "reviewContent": "Màu sắc sản phầm không giống quảng cáo",
+  "rate": "3",
+  "isDeleted": "0"
+},
+{
+  "_id": "25",
+  "productID": "1",
+  "userID": "2",
+  "reviewDate": "2021-03-11",
+  "reviewContent": "Sản phẩm rất đẹp",
+  "rate": "5",
+  "isDeleted": "0"
+},
+{
+  "_id": "28",
+  "productID": "2",
+  "userID": "2",
+  "reviewDate": "2021-05-04",
+  "reviewContent": "Sản phẩm rất đẹp",
+  "rate": "5",
+  "isDeleted": "0"
+},
+{
+  "_id": "9",
+  "productID": "2",
+  "userID": "2",
+  "reviewDate": "2021-03-05",
+  "reviewContent": "Màu sắc sản phầm không giống quảng cáo",
+  "rate": "3",
+  "isDeleted": "0"
+},
+{
+  "_id": "10",
+  "productID": "2",
+  "userID": "1",
+  "reviewDate": "2021-03-06",
+  "reviewContent": "Sản phẩm tốt",
+  "rate": "4",
+  "isDeleted": "0"
+},
+{
+  "_id": "20",
+  "productID": "5",
+  "userID": "1",
+  "reviewDate": "2021-03-04",
+  "reviewContent": "Sản phẩm rất đẹp",
+  "rate": "5",
+  "isDeleted": "0"
+},
+{
+  "_id": "19",
+  "productID": "5",
+  "userID": "1",
+  "reviewDate": "2021-03-03",
+  "reviewContent": "Sản phẩm được gói cẩn thận, chất lượng tốt, mẫu mã như quảng cáo",
+  "rate": "4.5",
+  "isDeleted": "0"
+},
+{
+  "_id": "24",
+  "productID": "1",
+  "userID": "2",
+  "reviewDate": "2021-03-10",
+  "reviewContent": "Sản phẩm được gói cẩn thận, chất lượng tốt, mẫu mã như quảng cáo",
+  "rate": "4.5",
+  "isDeleted": "0"
+},
+{
+  "_id": "30",
+  "productID": "2",
+  "userID": "2",
+  "reviewDate": "2021-02-06",
+  "reviewContent": "Sản phẩm tốt",
+  "rate": "4",
+  "isDeleted": "0"
+},
+{
+  "_id": "4",
+  "productID": "1",
+  "userID": "1",
+  "reviewDate": "2021-03-06",
+  "reviewContent": "Sản phẩm tốt",
+  "rate": "4",
+  "isDeleted": "0"
+},
+{
+  "_id": "16",
+  "productID": "4",
+  "userID": "1",
+  "reviewDate": "2021-03-03",
+  "reviewContent": "Sản phẩm được gói cẩn thận, chất lượng tốt, mẫu mã như quảng cáo",
+  "rate": "4.5",
+  "isDeleted": "0"
+},
+{
+  "_id": "27",
+  "productID": "2",
+  "userID": "2",
+  "reviewDate": "2021-04-03",
+  "reviewContent": "Sản phẩm được gói cẩn thận, chất lượng tốt, mẫu mã như quảng cáo",
+  "rate": "4.5",
+  "isDeleted": "0"
+},
+{
+  "_id": "22",
+  "productID": "6",
+  "userID": "1",
+  "reviewDate": "2021-03-03",
+  "reviewContent": "Sản phẩm được gói cẩn thận, chất lượng tốt, mẫu mã như quảng cáo",
+  "rate": "4.5",
+  "isDeleted": "0"
+},
+{
+  "_id": "29",
+  "productID": "2",
+  "userID": "1",
+  "reviewDate": "2021-01-05",
+  "reviewContent": "Màu sắc sản phầm không giống quảng cáo",
+  "rate": "3",
+  "isDeleted": "0"
+},
+{
+  "_id": "13",
+  "productID": "3",
+  "userID": "2",
+  "reviewDate": "2021-03-04",
+  "reviewContent": "Sản phẩm rất đẹp",
+  "rate": "5",
+  "isDeleted": "0"
+},
+{
+  "_id": "23",
+  "productID": "6",
+  "userID": "1",
+  "reviewDate": "2021-03-04",
+  "reviewContent": "Sản phẩm rất đẹp",
+  "rate": "5",
+  "isDeleted": "0"
+}]

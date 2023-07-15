@@ -1,0 +1,54 @@
+[{
+  "_id": "4",
+  "brandName": "DELL",
+  "brandImg": null,
+  "isDeleted": "0"
+},
+{
+  "_id": "5",
+  "brandName": "SAMSUNG",
+  "brandImg": null,
+  "isDeleted": "0"
+},
+{
+  "_id": "2",
+  "brandName": "Apple",
+  "brandImg": null,
+  "isDeleted": "0"
+},
+{
+  "_id": "3",
+  "brandName": "HP",
+  "brandImg": null,
+  "isDeleted": "0"
+},
+{
+  "_id": "7",
+  "brandName": "HUAWEI",
+  "brandImg": null,
+  "isDeleted": "0"
+},
+{
+  "_id": "8",
+  "brandName": "MSI",
+  "brandImg": null,
+  "isDeleted": "0"
+},
+{
+  "_id": "9",
+  "brandName": "ACER",
+  "brandImg": null,
+  "isDeleted": "0"
+},
+{
+  "_id": "1",
+  "brandName": "Asus",
+  "brandImg": null,
+  "isDeleted": "0"
+},
+{
+  "_id": "6",
+  "brandName": "XIAOMI",
+  "brandImg": null,
+  "isDeleted": "0"
+}]
